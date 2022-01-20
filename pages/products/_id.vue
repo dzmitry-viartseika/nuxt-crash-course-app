@@ -1,7 +1,7 @@
 <template>
   <div class="app-product">
     <div v-if="product" class="app__container">
-      <div class="hero-container">
+      <div class="app-product-container">
         <img :src="require(`@/assets/images/${product.image}`)" alt="" class="image">
         <div class="info-box">
           <h1>{{ product.title }}</h1>
@@ -11,20 +11,20 @@
           />
         </div>
       </div>
-      <div class="whats-included-container">
-        <div class="included-container">
+      <div class="app-product-includes">
+        <div class="app-product-includes__item">
           <h6>Super Effective</h6>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolorem.</p>
         </div>
-        <div class="included-container">
+        <div class="app-product-includes__item">
           <h6>Clean & Tidy</h6>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolorem.</p>
         </div>
-        <div class="included-container">
+        <div class="app-product-includes__item">
           <h6>Cancel Anytime</h6>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolorem.</p>
         </div>
-        <div class="included-container">
+        <div class="app-product-includes__item">
           <h6>Satisfaction Guaranteed</h6>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolorem.</p>
         </div>
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import RentModal from '../../components/Modals/RentModal/RentModal.vue';
 import Reviews from '../../components/Review/Review.vue';
 import PageNotFound from '../../components/Placeholders/PageNotFound.vue';
@@ -63,66 +62,46 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import './assets/scss/variables';
+
 .app-product {
   padding-top: 60px;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-includes {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__item {
+
+      h6 {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
 }
-.hero-container {
-  display: flex;
-  justify-content: space-between;
-}
+
 .image {
   width: 59%;
   height: 25rem;
 }
 .info-box {
   width: 39%;
-  background-color: rgba(207, 201, 201, 0.322);
+  background-color: rgba($color-description, .2);
   padding: 1rem;
   border-radius: 0.5rem;
 }
 .whats-included-container {
-  border-bottom: 0.1rem solid rgba(128, 128, 128, 0.151);
+  border-bottom: 0.1rem solid rgba($color-description, .2);
 }
-.description-container {
-  border-bottom: 0.1rem solid rgba(128, 128, 128, 0.151);
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-}
+
 .included-container {
   margin-top: 1.5rem;
 }
-h1 {
-  font-size: 1.75rem;
-}
-h6 {
-  font-size: 1.15rem;
-  font-weight: 400;
-}
-p {
-  color: grey
-}
-.snippet {
-  color: rgba(0, 0, 0, 0.774);
-  margin-top: 1rem;
-}
-button {
-  width: 100%;
-  border: none;
-  padding: 0.5rem;
-  color: white;
-  font-weight: 700;
-  padding: 1rem 4rem;
-  border-radius: 100rem;
-  background-color: rgb(231, 81, 43);
-  color: white;
-  font-weight: 700;
-  transition: 0.5s;
-}
-.description-container {
-  margin-top: 3rem;
-  color: grey
-}
-.padding {
-  padding: 10rem 0
-}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-reviews">
     <h3>Customer Reviews</h3>
     <div v-if="reviewers.results">
       <ReviewCard
@@ -34,4 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ .app-reviews {
+   padding-bottom: 50px;
+ }
 </style>

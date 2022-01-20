@@ -1,7 +1,9 @@
 <template>
-  <div class="review-card">
-    <div class="image-container">
-      <img :src="review.picture.large" alt="">
+  <div class="app-review-card">
+    <div class="app__container">
+      <div class="app-review-card__photo">
+        <img :src="review.picture.large" alt="">
+      </div>
     </div>
     <div class="text-container" >
       <h6>{{review.login.username}}</h6>
@@ -12,25 +14,25 @@
 
 <script>
 export default {
-  props: ['review'],
+  props: {
+    review: {
+      type: Object,
+      required: true,
+    }
+  }
 }
 </script>
 
-<style scoped>
-.review-card {
-  margin-top: 1.5rem;
-  height: 4rem;
-  display: flex;
-}
-.text-container {
-  margin-left: 2rem
-}
-img {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 100%;
-}
-p {
-  color: grey
-}
+<style scoped lang="scss">
+  .app-review-card {
+    margin-top: 1.5rem;
+    height: 4rem;
+    display: flex;
+
+    &__photo img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+    }
+  }
 </style>

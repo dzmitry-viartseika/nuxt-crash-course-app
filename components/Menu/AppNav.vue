@@ -2,7 +2,6 @@
   <a-menu
     theme="dark"
     mode="horizontal"
-    :default-selected-keys="['2']"
   >
     <a-menu-item
       v-for="item in navigation"

@@ -39,7 +39,12 @@ export default {
   components: {
     ButtonDefault,
   },
-  props: ['product'],
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    }
+  },
   data() {
     return {
       visible: false,
@@ -52,7 +57,6 @@ export default {
       this.visible = true;
     },
     handleOk(e) {
-      console.log(e);
       this.visible = false;
     },
     ...mapMutations(['addItem']),
@@ -65,29 +69,6 @@ export default {
 </script>
 
 
-<style scoped>
-button {
-  width: 100%;
-  border: none;
-  padding: 0.5rem;
-  color: white;
-  font-weight: 700;
-  padding: 1rem 4rem;
-  border-radius: 100rem;
-  background-color: rgb(231, 81, 43);
-  color: white;
-  font-weight: 700;
-  transition: 0.5s;
-}
-.calendar-container {
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-}
-p {
-  color: grey
-}
-.text-container {
-  padding: 0.5rem
-}
+<style scoped lang="scss">
+
 </style>
