@@ -4,21 +4,33 @@
     mode="horizontal"
     :default-selected-keys="['2']"
   >
-    <a-menu-item key="1">
-      nav 1
-    </a-menu-item>
-    <a-menu-item key="2">
-      nav 2
-    </a-menu-item>
-    <a-menu-item key="3">
-      nav 3
+    <a-menu-item
+      v-for="item in navigation"
+      :key="item.id"
+      @click="proceedTo(item.route)"
+    >
+      {{ item.name }}
     </a-menu-item>
   </a-menu>
 </template>
 
 <script>
 export default {
-  name: "AppNav"
+  name: 'AppNav',
+  props: {
+    navigation: {
+      type: Array,
+      required: true,
+    },
+  },
+  methods: {
+    proceedTo(route) {
+      if (!route) {
+        return //
+      }
+      this.$router.push(route);
+    }
+  }
 }
 </script>
 

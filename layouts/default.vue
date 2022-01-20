@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-header />
+    <nav-header :navigation="navigation"/>
     <nuxt />
     <app-footer />
   </div>
@@ -15,10 +15,24 @@ export default {
   components: {
     NavHeader,
     AppFooter,
-  }
+  },
+  data: () => ({
+    navigation: [
+      {
+        id: 1,
+        name: 'Products',
+        route: '/products'
+      },
+      {
+        id: 2,
+        name: 'My Items',
+        route: '/my-items'
+      },
+    ]
+  })
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

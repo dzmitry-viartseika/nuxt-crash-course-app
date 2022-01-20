@@ -1,6 +1,6 @@
 const smallCardSections = [
       {
-          id: 1,
+          id: 'smallCardSections-1',
           title: "Fire Extinguisher in Toronto",
           cards: [
               {
@@ -54,7 +54,7 @@ const smallCardSections = [
           ]
       },
       {
-        id: 2,
+        id: 'smallCardSections-2',
         title: "Fire Extinguisher in Niagara",
         cards: [
             {

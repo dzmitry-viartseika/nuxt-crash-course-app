@@ -7,7 +7,7 @@
       {{ cardsSection.snippet }}
     </p>
     <div class="cards-container">
-      <LargeCard
+      <large-card
         v-for="card in cardsSection.cards"
         :key="card.image"
         :card="card"
@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import LargeCard from './LargeCard.vue';
+
 export default {
-  props: ['cardsSection']
+  props: ['cardsSection'],
+  components: {
+    LargeCard,
+  }
 }
 </script>
 

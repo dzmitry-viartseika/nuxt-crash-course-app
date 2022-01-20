@@ -2,7 +2,7 @@
   <div class="container">
     <h3 class="header">{{ cardsSection.title }}</h3>
     <div class="card-container">
-      <SmallCard
+      <small-card
         v-for="card in cardsSection.cards"
         :key="card.id"
         :card="card"
@@ -12,8 +12,13 @@
 </template>
 
 <script>
+import SmallCard from "./SmallCard";
+
 export default {
-  props: ["cardsSection"]
+  props: ["cardsSection"],
+  components: {
+    SmallCard,
+  }
 }
 </script>
 

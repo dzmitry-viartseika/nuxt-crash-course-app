@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="app__container">
     <Banner />
     <LargeCardDisplay
-      v-for="cardInfo in largeCardInfo"
-      :key="cardInfo.id"
-      :cardsSection="cardInfo"
+      v-for="cardInfoLarge in largeCardInfo"
+      :key="cardInfoLarge.id"
+      :cardsSection="cardInfoLarge"
     />
     <SmallCardDisplay
-      v-for="cardInfo in smallCardSections"
-      :key="cardInfo.id"
-      :cardsSection="cardInfo"
+      v-for="cardInfoSmall in smallCardSections"
+      :key="cardInfoSmall.id"
+      :cardsSection="cardInfoSmall"
     />
   </div>
 </template>
@@ -36,3 +36,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.app__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+</style>

@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "scss/variables";
+@import "assets/scss/variables";
 
   .app-banner {
     display: flex;
@@ -38,10 +38,6 @@ export default {
     padding-top: 60px;
     padding-bottom: 40px;
     position: relative;
-
-    &__container {
-      max-width: 600px;
-    }
 
     &__snippet {
       color: $color-description;
