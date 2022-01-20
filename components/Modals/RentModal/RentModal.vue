@@ -1,48 +1,65 @@
 <template>
   <div>
+
     <button-default
       text="Rent"
-      @click="showModal"
+      @handleClick="showModal"
     />
-<!--    <b-modal ref="my-modal" hide-footer title="Using Component Methods">-->
-<!--      <div class="calendar-container">-->
-<!--        <div class="text-container">-->
-<!--          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores quis soluta quia neque! Ea modi, a omnis eligendi enim ducimus asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, autem?</p>-->
-<!--        </div>-->
-<!--        <vc-date-picker-->
-<!--          :value="null"-->
-<!--          color="indigo"-->
-<!--          is-dark-->
-<!--          is-range-->
-<!--        />-->
-<!--      </div>-->
-<!--      <b-button class="mt-3" variant="outline-danger" block @click="() => {-->
-<!--        addItem(product.id)-->
-<!--        hideModal()-->
-<!--      }">Order</b-button>-->
-<!--    </b-modal>-->
+
+    <a-modal
+      v-model="visible"
+      title="Basic Modal"
+      @ok="handleOk"
+    >
+      <vc-date-picker
+        :value="null"
+        color="indigo"
+        is-dark
+        is-range
+      />
+      <div class="calendar-container">
+        <div class="text-container">
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores quis soluta quia neque! Ea modi, a omnis eligendi enim ducimus asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, autem?</p>
+        </div>
+      </div>
+
+      <button-default
+        text="Order"
+        @handleClick="order"
+      />
+    </a-modal>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import ButtonDefault from '../../Elements/Button/ButtonDefault.vue';
+
 export default {
   components: {
     ButtonDefault,
   },
   props: ['product'],
+  data() {
+    return {
+      visible: false,
+      selectedDate: null,
+      days: [],
+    };
+  },
   methods: {
     showModal() {
-      this.$refs['my-modal'].show()
+      this.visible = true;
     },
-    hideModal() {
-      this.$refs['my-modal'].hide()
-    },
-    toggleModal() {
-      this.$refs['my-modal'].toggle('#toggle-btn')
+    handleOk(e) {
+      console.log(e);
+      this.visible = false;
     },
     ...mapMutations(['addItem']),
+    order() {
+      this.addItem(this.product.id);
+      this.visible = false;
+    },
   }
 }
 </script>

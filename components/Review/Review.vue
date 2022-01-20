@@ -24,7 +24,11 @@ export default {
     }
   },
   async fetch() {
-    this.reviewers = await fetch('https://randomuser.me/api/?results=5').then((res) => res.json())
+    try {
+      this.reviewers = await fetch('https://randomuser.me/api/?results=5').then((res) => res.json())
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
 </script>
