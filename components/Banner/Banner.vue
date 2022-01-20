@@ -10,6 +10,7 @@
       </p>
       <button-default
         text="Start Looking"
+        @handleClick="handleClick"
       />
     </div>
     <div class="app-banner__image">
@@ -25,6 +26,11 @@ export default {
   name: 'Banner',
   components: {
     ButtonDefault,
+  },
+  methods: {
+    handleClick() {
+      this.$router.push('/products');
+    }
   }
 }
 </script>

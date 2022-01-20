@@ -44,7 +44,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import RentModal from '../../components/Modals/RentModal/RentModal.vue';
+import Reviews from '../../components/Review/Review.vue';
+import PageNotFound from '../../components/Placeholders/PageNotFound.vue';
+
 export default {
+  components: {
+    RentModal,
+    Reviews,
+    PageNotFound,
+  },
   computed: {
     product() {
       return this.$store.getters.getProductById(this.$route.params.id);

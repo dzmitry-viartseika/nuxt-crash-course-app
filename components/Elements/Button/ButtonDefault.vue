@@ -1,5 +1,8 @@
 <template>
-  <a-button :type="type">
+  <a-button
+    :type="type"
+    @click="handleClick"
+  >
     {{ text }}
   </a-button>
 </template>
@@ -15,6 +18,12 @@ export default {
     type: {
       type: String,
       default: 'primary',
+    }
+  },
+  methods: {
+    handleClick() {
+      console.log('handleClick')
+      this.$emit('handleClick');
     }
   }
 }
